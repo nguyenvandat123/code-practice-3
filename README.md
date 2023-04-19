@@ -61,12 +61,12 @@ int sum_marks(int i,int b[9][7])
 void sort_sum_marks(int c[9][7])
 {
 	int z=1;
-	int min=c[z][6];
+	int max=c[z][6];
 	for (int i=1;i<9;i++)
 	{
-		if (c[i][6]<min)
+		if (c[i][6]>max)
 		{
-		min=c[i][6];
+		max=c[i][6];
 		z=i;
 		} 
 	}
