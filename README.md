@@ -3,6 +3,7 @@
 ```sh
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 using namespace std;
 void print_marks(int i,int a[9][7]);
 int sum_marks(int i,int b[9][7]);
@@ -10,16 +11,11 @@ void sort_sum_marks(int c[9][7]);
 int main()
 {
 	int arrays_marks[9][7];
-	for (int j=0;j<6;j++)
-	{
-		arrays_marks[0][j]=j;
-	}
-	cout<<"  "<<"\t"<<"\t";
-	for (int j=1;j<6;j++)
-	{
-		cout<<"T"<<arrays_marks[0][j]<<"\t"<<"\t";
-	}
-	cout<<"sum_marks";
+	cout << "\t\t";
+	for (int i = 1; i < 6; i++)
+		cout << "T" << i << "\t\t";
+	cout << "sum_marks";
+	srand(time(0));
 	for (int i=1;i<9;i++)
 	{
 		for (int j=1;j<6;j++)
@@ -60,17 +56,34 @@ int sum_marks(int i,int b[9][7])
 }
 void sort_sum_marks(int c[9][7])
 {
-	int z=1;
-	int max=c[z][6];
-	for (int i=1;i<9;i++)
+	int a[9];
+	a[0] = 0;
+
+	for (int i = 1; i < 9; i++)
+		a[i] = c[i][6];
+
+	for (int i = 1; i < 9 - 1; i++)
 	{
-		if (c[i][6]>max)
-		{
-		max=c[i][6];
-		z=i;
-		} 
+		for (int j = i + 1; j < 9; j++)
+			if (a[i] < a[j])
+				swap(a[i], a[j]); 
 	}
-	print_marks(z,c);
-	cout<<sum_marks(z,c);
+	cout << " \n" << "After Sort Scores"; 
+	int t = 1;
+	while (1)
+	{
+		if (t == 9) break;
+		for (int i = 1; i < 9; i++)
+		{
+			if (c[i][6] == a[t])
+			{
+				print_marks(i, c);
+				cout << sum_marks(i, c);
+				c[i][6] = -1;
+				t++;
+			}
+		}
+	}
+
 }
 ```
