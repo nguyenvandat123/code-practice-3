@@ -77,7 +77,7 @@ void sort_sum_marks(int c[9][7])
 			if (c[i][6] == a[t])
 			{
 				print_marks(i, c);
-				cout << sum_marks(i,c)
+				cout << sum_marks(i,c);
 				t++;
 			}
 		}
