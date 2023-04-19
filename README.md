@@ -70,16 +70,14 @@ void sort_sum_marks(int c[9][7])
 	}
 	cout << " \n" << "After Sort Scores"; 
 	int t = 1;
-	while (1)
+	while (t<9)
 	{
-		if (t == 9) break;
 		for (int i = 1; i < 9; i++)
 		{
 			if (c[i][6] == a[t])
 			{
 				print_marks(i, c);
-				cout << sum_marks(i, c);
-				c[i][6] = -1;
+				cout << sum_marks(i,c)
 				t++;
 			}
 		}
